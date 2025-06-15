@@ -15,6 +15,7 @@ services:
     depends_on:
       - mysqldb
     image: waleamiri/tp-foyer:5.0.0
+
     #build : ./
     restart: on-failure
     ports:
