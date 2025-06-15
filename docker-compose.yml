@@ -19,7 +19,7 @@ services:
     #build : ./
     restart: on-failure
     ports:
-      - 8089:8089
+      - 8090:8089
     environment:
       SPRING_APPLICATION_JSON: '{
         "spring.datasource.url"  : "jdbc:mysql://mysqldb:3307/achat_db?createDatabaseIfNotExist=true",
