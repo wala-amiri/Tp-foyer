@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entity.Bloc;
-import tn.esprit.tpfoyer.repository.BlocRepository;
+import tn.esprit.tpfoyer.entity.repository.BlocRepository;
 
 import java.util.ArrayList;
 import java.util.List;

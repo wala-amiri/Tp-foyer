@@ -23,7 +23,7 @@ public class Universite {
 
     @OneToOne(cascade = CascadeType.ALL)
     Foyer foyer;
-    //modif 2 
+    //modif 2
 
 }
 

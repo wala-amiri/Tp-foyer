@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entity.Chambre;
 import tn.esprit.tpfoyer.entity.TypeChambre;
-import tn.esprit.tpfoyer.repository.ChambreRepository;
+import tn.esprit.tpfoyer.entity.repository.ChambreRepository;
 
 import java.util.List;
 
