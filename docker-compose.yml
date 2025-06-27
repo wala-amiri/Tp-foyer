@@ -15,6 +15,13 @@ services:
     depends_on:
       - mysqldb
     image: waleamiri/tp-foyer:5.0.0
+  k6-test:
+    image: grafana/k6
+    depends_on:
+      - app-timesheet
+    volumes:
+      - ./k6:/scripts
+    entrypoint: [ "k6", "run", "/scripts/load-test.js" ]
 
     #build : ./
     restart: on-failure
@@ -22,7 +29,7 @@ services:
       - 8090:8089
     environment:
       SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:mysql://mysqldb:3307/achat_db?createDatabaseIfNotExist=true",
+        "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/achat_db?createDatabaseIfNotExist=true",
         "spring.datasource.username" : "root",
         "spring.datasource.password" : "root",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
