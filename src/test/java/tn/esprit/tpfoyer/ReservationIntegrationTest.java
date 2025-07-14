@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.springframework.test.context.DynamicPropertyRegistry;
@@ -14,6 +15,7 @@ import tn.esprit.tpfoyer.entity.Reservation;
 import tn.esprit.tpfoyer.service.IEtudiantService;
 import tn.esprit.tpfoyer.service.IReservationService;
 
+import java.time.Duration;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,7 +33,8 @@ class ReservationIntegrationTest {
             .withUsername("testuser")
             .withPassword("testpass")
             // Forcer l’authentification compatible avec le driver JDBC
-            .withCommand("--default-authentication-plugin=mysql_native_password");
+            .withCommand("--default-authentication-plugin=mysql_native_password")
+            .waitingFor(Wait.forListeningPort().withStartupTimeout(Duration.ofSeconds(60)));
 
     @DynamicPropertySource
     static void overrideProps(DynamicPropertyRegistry registry) {
