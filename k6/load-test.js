@@ -2,12 +2,13 @@ import http from 'k6/http';
 import { check } from 'k6';
 
 export const options = {
+    // Simule 10 utilisateurs virtuels pendant 1 minute
     vus: 10,
-    duration: '30s',
+    duration: '1m',
 };
 
 export default function () {
-    const res = http.get('http://localhost:8090/tpfoyer/reservation/retrieve-all-reservations');
+    const res =   http.get('http://app-timesheet:8089/tpfoyer/reservation/retrieve-all-reservations' );
 
     check(res, {
         'status is 200': (r) => r.status === 200,
