@@ -6,3 +6,8 @@ scrape_configs:
     metrics_path: '/tpfoyer/actuator/prometheus'
     static_configs:
       - targets: ['app-timesheet:8089']
+  # Cible pour cAdvisor (métriques des conteneurs)
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['192.168.50.4:8087']
+
