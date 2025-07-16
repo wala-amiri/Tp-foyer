@@ -76,6 +76,20 @@ services:
     volumes:
       - nexus-data:/nexus-data
 
+  zap-scan:
+    image: softwaresecurityproject/zap-stable
+    container_name: zap_scan
+    depends_on:
+      app-timesheet:
+        condition: service_started
+    command: >
+      zap-baseline.py 
+      -t http://app-timesheet:8089/tpfoyer 
+      -r report.html
+    volumes:
+      - ./zap-report:/zap/wrk
+
+
 volumes:
   db:
   grafana-data:
