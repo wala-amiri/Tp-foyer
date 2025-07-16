@@ -13,6 +13,7 @@ export default function () {
     // pour laisser le temps à l'application de démarrer.
     // Tu peux augmenter cette valeur si ton application est lente à démarrer.
     sleep(80);
+
     const res =   http.get('http://app-timesheet:8089/tpfoyer/reservation/retrieve-all-reservations' );
 
     check(res, {

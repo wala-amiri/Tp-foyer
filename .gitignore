@@ -31,3 +31,16 @@ build/
 
 ### VS Code ###
 .vscode/
+# Fichiers et dossiers générés localement
+
+# Dossier des rapports de sécurité ZAP
+/zap-report/
+
+# Dépendances Node.js
+/node_modules/
+
+# Fichiers de log
+*.log
+
+# Dossier de build Maven
+/target/
